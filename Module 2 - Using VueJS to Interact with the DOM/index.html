@@ -1,0 +1,46 @@
+<html lang="en">
+
+<head>
+  <title>Module 2 - Using VueJS to Interact with the DOM</title>
+  <script src="../vue.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="app">
+    <h3>Section 1 - Outputting Data to Templates</h3>
+    <input type="text" v-on:input="changeTitle">
+    <p>{{ title }} - <a v-bind:href="link">Google</a></p>
+    <hr>
+    <p v-html="finishedLink"></p>
+    <hr>
+    <h3>Section 2 - Events | Section 3 - Reactive Properties</h3>
+    <button v-on:click="increment">Increase</button>
+    <!-- updates counter with different syntax, same functionality as above -->
+    <button v-on:click="counter++">Click me</button>
+    <button v-on:click="decrement">Decrease</button>
+    <button v-on:click="secondCounter++">Increase Second Counter</button>
+    <p>Total clicks: {{ counter }} | Second counter: {{ secondCounter }}</p>
+    <p>Result: {{ methodResult() }}</p>
+    <P>Computed: {{ computedResult }}</P>
+    <p v-on:mousemove="updateCoords">
+      Coordinates: ({{ x }}, {{ y }})
+      <span v-on:mousemove.stop="">[DEAD SPOT]</span>
+    </p>
+    <input type="text" v-on:keyup.enter="alertMe">
+    <hr>
+  </div>
+  <div id="s4">
+    <h3>Section 4 - Styling</h3>
+    <div class="demo" @click="attachRed = !attachRed" :class="divClasses"></div>
+    <div class="demo" :class="[color, {red: attachRed}]"></div>
+    <div class="demo" :style="myStyle"></div>
+    <div class="demo" :style="[myStyle, {height: width + 'px'}]"></div>
+    <hr>
+    <input type="text" v-model="color">
+    <input type="text" v-model="width">
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>

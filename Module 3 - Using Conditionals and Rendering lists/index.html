@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+    <title>Module 3 - Using Conditionals and Rendering Lists</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p v-if="show">You can see me!</p>
+        <p v-else>Now you see me!</p>
+        <template v-if="show">
+            <h1>Heading</h1>
+            <p>Insinde a template</p>
+        </template>
+        <!-- v-show only hides content in DOM and doesn't remove it -->
+        <p v-show="show">Do you also see me?</p>
+        <button @click="show = !show">Switch</button>
+        <hr>
+        <ul>
+            <li v-for="(ingredient, index) in ingredients" :key="ingredient">{{ ingredient }} ({{ index }})</li>
+        </ul>
+        <template v-for="(ingredient, index) in ingredients">
+            <h4>{{ ingredient }}</h4>
+            <p>{{ index }}</p>
+        </template>
+        <button @click="ingredients.push('spices')">Add Spices</button>
+        <hr>
+        <ul>
+            <li v-for="person in persons">
+                <div v-for="(value, key, index) in person">{{ key }}: {{ value }} ({{ index }})</div>
+            </li>
+        </ul>
+        <span v-for="n in 10">{{ n }} </span>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
