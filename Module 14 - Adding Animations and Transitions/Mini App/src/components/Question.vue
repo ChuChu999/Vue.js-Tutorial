@@ -35,11 +35,14 @@
     </div>
   </div>
 </template>
+
 <style>
 </style>
+
 <script>
   const MODE_ADDITION = 1;
   const MODE_SUBTRACTION = 2;
+  
   export default {
     data() {
       return {
